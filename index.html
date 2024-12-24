@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyContent</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffafbd, #ffc3a0);
+            color: #4a4a4a;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #ff6f61;
+        }
+        section {
+            padding: 20px;
+        }
+        .plot-twist {
+            display: none;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e55d50;
+        }
+        .video-container {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MyContent</h1>
+        <p>A story full of love and surprises for u</p>
+    </header>
+
+    <section id="content">
+        <p>Welcome sayangg, aku punya kejutan nii buat kamuu. Pencet dong tombolnyaa!!</p>
+        <button onclick="showPlotTwist(1)">Klikk ini yaa!!</button>
+    </section>
+
+    <div id="plot1" class="plot-twist">
+        <p>'Ikan cucut, ikan hiu. Youre so cute, i love u"</p>
+        <button onclick="showPlotTwist(2)">Next</button>
+    </div>
+
+    <div id="plot2" class="plot-twist">
+        <p>Semua tentangmu~</p>
+        <button onclick="showVideo()">Reveal the End</button>
+    </div>
+
+    <div class="video-container" id="video">
+        <p>Here is a special message from someone who truly loves you:</p>
+        <video controls width="80%">
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        function showPlotTwist(step) {
+            document.getElementById(`plot${step}`).style.display = 'block';
+            if (step > 1) {
+                document.getElementById(`plot${step - 1}`).style.display = 'none';
+            } else {
+                document.getElementById('content').style.display = 'none';
+            }
+        }
+
+        function showVideo() {
+            document.getElementById('plot2').style.display = 'none';
+            document.getElementById('video').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
